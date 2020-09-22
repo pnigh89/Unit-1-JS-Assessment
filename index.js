@@ -74,6 +74,21 @@ function getSummary(character) {
 */
 function getVehiclesCostInCreditsSumTotal(character) {
   // TODO: Add your code here.
+
+  
+    return character.vehicles.reduce(function(accumulator, item){
+      return character.vehicles.reduce(function(accumulator, item){
+        if (item.cost_in_credits === null){
+          item.cost_in_credits === 0;
+        }
+        return accumulator + item.cost_in_credits;
+  
+  
+    }, 0);
+      return accumulator + item.cost_in_credits;
+
+
+  }, 0);
 }
 
 /**
