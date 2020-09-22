@@ -43,7 +43,7 @@ function getFilmCount(character) {
 */
 function getSecondStarshipName(character) {
   // TODO: Add your code here.  
-  if (character.starships.length < [1]){
+  if (character.starships.length === 0){
     return "none"
   } else {
     return character.starships[1].name;
@@ -77,14 +77,10 @@ function getVehiclesCostInCreditsSumTotal(character) {
 
   
     return character.vehicles.reduce(function(accumulator, item){
-      return character.vehicles.reduce(function(accumulator, item){
-        if (item.cost_in_credits === null){
-          item.cost_in_credits === 0;
-        }
-        return accumulator + item.cost_in_credits;
-  
-  
-    }, 0);
+      if (item.cost_in_credits === null){
+        item.cost_in_credits === 0;
+      }
+
       return accumulator + item.cost_in_credits;
 
 
@@ -102,7 +98,12 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-  // TODO: Add your code here.
+  // TODO: Add your code here. 
+   return character.starships.reduce(function(accumulator, item){
+
+    return accumulator + item.crew + item.passengers;
+
+   }, 0)
 }
 
 /**
@@ -120,6 +121,11 @@ function getStarshipPassengerAndCrewSumTotal(character) {
 */
 function getNthFilm(character, filmNumber) {
   // TODO: Add your code here.
+  if (filmNumber - 1 <= 2){
+  return character.films[filmNumber - 1];
+  } else {
+    return "My favorite extra cheesy movie is Dude, Where's My Car?"
+  }
 }
 
 /**
