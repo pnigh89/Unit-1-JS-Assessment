@@ -139,6 +139,27 @@ function getNthFilm(character, filmNumber) {
  * Sample data expected output: 80124
 */
 function getCargoCapacityTotal(character) {
+
+  let cargoV = character.vehicles.reduce(function(accumulator, item){
+
+    if (item.cargo_capacity === null){
+      item.cargo_capacity === parseInt(null)
+    }
+return accumulator + parseInt(item.cargo_capacity);
+
+  }, 0);
+
+  let cargoS = character.starships.reduce(function(accumulator, item){
+
+    if (item.cargo_capacity === null){
+      item.cargo_capacity === parseInt(null);
+    }
+
+    return accumulator + parseInt(item.cargo_capacity);
+    
+      }, 0);
+
+      return cargoV + cargoS;
   // TODO: Add your code here.
 }
 
